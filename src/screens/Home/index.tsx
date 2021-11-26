@@ -13,8 +13,16 @@ import {Container,
 import { CardHours } from '../../components/Cards';
 import { ListsPointer } from '../../components/Lists';
 
-
-export function Home(){
+interface LoginProps {
+    navigation: any
+  }
+export function Home({navigation}: LoginProps){
+    function handleUserLogin(){
+        navigation.reset({
+          index: 0,
+          routes: [{name: "Login"}]
+        })
+      }
  
     return (
         <Container>
@@ -27,7 +35,9 @@ export function Home(){
                        <TextName>Renata</TextName>
                     </UserDetail>
                 </UserInfo>
-                <Icon name="power"/>
+                <Icon 
+                name="power"
+                onPress={handleUserLogin}/>
             </UserWrapper>
            </Header>
         <HighlightCards>

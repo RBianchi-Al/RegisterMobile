@@ -8,8 +8,12 @@ import {
 } from '@expo-google-fonts/poppins'
 import AppLoading from 'expo-app-loading'
 import theme from './src/global/styles/theme'
-import { Home } from './src/screens/Home';
 import { LoginUser } from './src/screens/Login';
+
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { Home } from './src/screens/Home';
+import AppNavigation from './src/routes/navigation';
 
 
 export default function App() {
@@ -21,11 +25,13 @@ export default function App() {
   if(!fontsLoading){
     return <AppLoading/>
   }
+  
   return (
-    <ThemeProvider theme={theme}>
-
-        <Home/>
-    </ThemeProvider>
+    
+      <ThemeProvider theme={theme}>
+        <AppNavigation/>
+      </ThemeProvider>
+    
  
   )
 }
