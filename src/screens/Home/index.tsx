@@ -26,7 +26,7 @@ export function Home({navigation}: LoginProps){
  
     return (
         <Container>
-            <Header>
+          <Header>
             <UserWrapper>
                <UserInfo>
                <Photo source={{ uri: 'https://avatars.githubusercontent.com/u/48865223?v=4' }}></Photo>
@@ -39,46 +39,46 @@ export function Home({navigation}: LoginProps){
                 name="power"
                 onPress={handleUserLogin}/>
             </UserWrapper>
-           </Header>
-        <HighlightCards>
-            <CardHours/>
-        </HighlightCards>
-        <HighlightList>
-            <ListsPointer
-             date = "12/10/2021"
-             title = "Saída Almoço"
-             hours = "12h30m"
-             type = "clock"
-
-            />
-            <ListsPointer
+          </Header>
+          <HighlightCards>
+              <CardHours/>
+          </HighlightCards>
+          <HighlightList>
+              <ListsPointer
               date = "12/10/2021"
-              title = "Entrada manhã"
+              title = "Saída Almoço"
+              hours = "12h30m"
+              type = "clock"
+
+              />
+              <ListsPointer
+                date = "12/10/2021"
+                title = "Entrada manhã"
+                hours = "12h30m"
+                type = "check"
+              />
+              <ListsPointer
+              
+              date = "11/10/2021"
+              title = "Saída Tarde"
               hours = "12h30m"
               type = "check"
-            />
-            <ListsPointer
+              />
+              <ListsPointer
+                date = "12/10/2021"
+                title = "Entrada Tarde"
+                hours = "12h30m"
+                type = "check"
+              />
+
+  <           ListsPointer
+                date = "12/10/2021"
+                title = "Saída Manhã"
+                hours = "12h30m"
+                type = "check"
+              />  
             
-            date = "11/10/2021"
-            title = "Saída Tarde"
-            hours = "12h30m"
-            type = "check"
-            />
-            <ListsPointer
-              date = "12/10/2021"
-              title = "Entrada Tarde"
-              hours = "12h30m"
-              type = "check"
-            />
-
-<           ListsPointer
-              date = "12/10/2021"
-              title = "Saída Manhã"
-              hours = "12h30m"
-              type = "check"
-            />  
-           
-        </HighlightList>
+          </HighlightList>
         </Container>
     )
 }

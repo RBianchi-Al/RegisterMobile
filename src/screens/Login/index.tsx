@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ButtonSubmit } from '../../components/Button';
 import { InputText } from '../../components/Inputs';
-import {Container, Text, Filds, ContainerPrimary, Input} from './styles'
+import {Container, Text, Filds, ContainerPrimary, Input, Icon, Link} from './styles'
+
+
 
 interface LoginProps {
     navigation: any
@@ -10,6 +12,8 @@ export function LoginUser({navigation}: LoginProps){
     
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] =  useState(true)
+
 
     const handleLogin = () => {
         navigation.reset({
@@ -18,29 +22,37 @@ export function LoginUser({navigation}: LoginProps){
           })
     
     }
+   
     return (
-        <Container>
-            <ContainerPrimary>
-              <Text>Login</Text>
-            </ContainerPrimary>
+        <Container>      
+            <ContainerPrimary/>      
+            <Icon
+                source={require("../../assets/clock.json")}
+                loop
+                autoPlay
+            />
             <Filds>
-                <Input> 
-                    <InputText
-                        placeholder="Email"
-                        onChangeText={setEmail}
-                    />
-                    <InputText
-                        placeholder="Password"
-                        onChangeText={setPassword}
-                    />
-                </Input>
-            
-                <ButtonSubmit
-                title="Entrar"
-                onPress={handleLogin}
+                <InputText
+                    placeholder="Email"
+                    onChangeText={setEmail}
                 />
+                <InputText
+                    placeholder="Password"
+                    onChangeText={setPassword}
+                />                
+                <ButtonSubmit
+                    title="Entrar"
+                    onPress={handleLogin}
+                />
+                 <Input>
+                    <Text>Ainda não tem conta?</Text>
+                        <Link  
+                            onPress={handleLogin}
+                        >Cadastre-se
+                        </Link>
+                </Input>
             </Filds>
-            
+               
         </Container>
     )
 }
