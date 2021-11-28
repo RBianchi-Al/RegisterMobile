@@ -22,6 +22,11 @@ export function LoginUser({navigation}: LoginProps){
           })
     
     }
+
+    const handleRegister = () => {
+        navigation.navigate("Register")
+    
+    }
    
     return (
         <Container>      
@@ -39,6 +44,7 @@ export function LoginUser({navigation}: LoginProps){
                 <InputText
                     placeholder="Password"
                     onChangeText={setPassword}
+                    secureTextEntry={true}
                 />                
                 <ButtonSubmit
                     title="Entrar"
@@ -47,7 +53,7 @@ export function LoginUser({navigation}: LoginProps){
                  <Input>
                     <Text>Ainda não tem conta?</Text>
                         <Link  
-                            onPress={handleLogin}
+                            onPress={handleRegister}
                         >Cadastre-se
                         </Link>
                 </Input>

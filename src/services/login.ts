@@ -1,27 +1,28 @@
 import axios from "axios";
-import AsyncStorage from "@react-native-async-storage/async-storage"
-import { Alert, StyleSheet, View } from 'react-native';
 
-interface PropsLogin {
-        username: string;
-        password: string;
-}
-export class UserService {
 
-    async login(data: PropsLogin){
+
+class UserService {
+    async registerUser(data){
         return axios({
-            url: "http://localhost:3000/login",
+            url: ("http://192.168.0.107:5001/user/register"),
             method: "POST",
             timeout: 5000,
             data: data,
             headers: {
-                Accept: 'application/json'
+                Contentype: "application/x-www-form-urlencoded",
+                Accept: "application/json",
+                
             }
         }).then((response) => {
-            AsyncStorage.setItem("login", response.data.login)
             return Promise.resolve(response)
         }).catch((error) => {
             return Promise.reject(error)
         })
     }
+
+
 }
+
+const userService = new UserService();
+export default userService
